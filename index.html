@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>20 Reasons Why I Love You</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ivory:#F8F3ED;--beige:#EBDDD5;--rose:#C99A9A;--burg:#7B4148;--char:#302528;
+--serif:'Playfair Display',Georgia,serif;--sans:'Poppins',system-ui,sans-serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;min-height:100vh;background:linear-gradient(160deg,var(--ivory),var(--beige));color:var(--char);font-family:var(--sans);font-weight:300;overflow-x:hidden;transition:background 2s ease}
+body.final{background:#FBF6EC}
+h1,h2,h3{font-family:var(--serif);font-weight:500;color:var(--burg);margin:0}
+.screen{display:none;min-height:100vh;padding:48px 20px;flex-direction:column;align-items:center;position:relative;z-index:2}
+.screen.on{display:flex;animation:fade 1s ease both}
+@keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+#intro{justify-content:center;text-align:center}
+#intro .tag{font-size:.75rem;letter-spacing:.3em;text-transform:uppercase;color:var(--rose);margin-bottom:22px}
+#intro h1{font-size:clamp(2.2rem,8vw,4.2rem);line-height:1.15}
+#intro p{max-width:30em;margin:22px auto 36px;font-family:var(--serif);font-style:italic;font-size:clamp(1rem,3.5vw,1.25rem);line-height:1.7;color:var(--char)}
+.btn{font:400 .9rem var(--sans);letter-spacing:.08em;color:var(--ivory);background:var(--burg);border:0;border-radius:40px;padding:15px 34px;cursor:pointer;transition:transform .3s,box-shadow .3s,background .3s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(123,65,72,.25);background:#8d4d55}
+.btn.ghost{background:transparent;color:var(--burg);border:1px solid var(--rose)}
+.btn.ghost:hover{background:rgba(201,154,154,.15);box-shadow:none}
+header.top{text-align:center;margin-bottom:28px;width:100%;max-width:900px}
+header.top h2{font-size:clamp(1.5rem,5vw,2.2rem)}
+.prog{margin:18px auto 6px;width:min(260px,80%);height:4px;background:rgba(201,154,154,.3);border-radius:4px;overflow:hidden}
+.prog i{display:block;height:100%;width:0;background:var(--rose);transition:width .8s ease}
+#count{font-size:.78rem;letter-spacing:.12em;color:var(--burg)}
+#grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;width:100%;max-width:900px}
+@media(min-width:760px){#grid{grid-template-columns:repeat(4,1fr);gap:18px}}
+.card{position:relative;aspect-ratio:1/1.05;background:rgba(248,243,237,.85);border:1px solid rgba(201,154,154,.45);border-radius:20px;padding:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;cursor:pointer;font:inherit;color:inherit;opacity:0;animation:rise .8s ease forwards;transition:transform .35s,box-shadow .35s,background .35s}
+@keyframes rise{from{opacity:0;transform:translateY(20px) scale(.94)}to{opacity:1;transform:none}}
+.card:hover{transform:translateY(-5px) scale(1.02);box-shadow:0 14px 30px rgba(123,65,72,.14)}
+.card .n{font-family:var(--serif);font-size:1.7rem;color:var(--rose)}
+.card .t{font-family:var(--serif);font-size:1rem;color:var(--burg);margin:6px 0 10px;line-height:1.25}
+.card .h{color:var(--rose);font-size:1.1rem;transition:transform .4s}
+.card:hover .h{transform:scale(1.3)}
+.card.done{background:var(--rose);border-color:var(--rose)}
+.card.done .n,.card.done .t,.card.done .h{color:var(--ivory)}
+#hint{margin-top:26px;font-size:.8rem;color:var(--burg);opacity:.8;text-align:center}
+#last{margin-top:24px;display:none}
+#last.show{display:block;animation:fade 1.2s ease both}
+#panel{position:fixed;inset:0;z-index:20;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(48,37,40,.45);backdrop-filter:blur(6px)}
+#panel.on{display:flex;animation:fadeonly .4s ease both}
+@keyframes fadeonly{from{opacity:0}to{opacity:1}}
+.sheet{position:relative;width:min(520px,100%);max-height:88vh;overflow:auto;background:var(--ivory);border-radius:26px;padding:44px 30px 34px;text-align:center;box-shadow:0 30px 70px rgba(48,37,40,.3)}
+.sheet .num{font-family:var(--serif);font-size:3.4rem;color:var(--rose);line-height:1}
+.sheet h3{font-size:1.8rem;margin:10px 0 18px}
+.sheet p{font-size:1.02rem;line-height:1.85;color:var(--char);margin:0 0 28px}
+.sheet .heart{color:var(--rose);font-size:1.3rem;margin-bottom:6px}
+.a0{animation:aZoom .7s cubic-bezier(.2,.8,.2,1) both}
+.a1{animation:aDrop .8s cubic-bezier(.2,.8,.2,1) both}
+.a2{animation:aSpin .8s ease both}
+.a3{animation:aRise .8s ease both}
+.a4{animation:aBlur .9s ease both}
+@keyframes aZoom{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:none}}
+@keyframes aDrop{from{opacity:0;transform:translateY(-50px)}to{opacity:1;transform:none}}
+@keyframes aSpin{from{opacity:0;transform:rotate(-8deg) scale(.8)}to{opacity:1;transform:none}}
+@keyframes aRise{from{opacity:0;transform:translateY(60px)}to{opacity:1;transform:none}}
+@keyframes aBlur{from{opacity:0;filter:blur(14px);transform:scale(1.08)}to{opacity:1;filter:none;transform:none}}
+#final{justify-content:center;text-align:center}
+#fheart{font-size:2.6rem;color:var(--rose);animation:beat 1.4s ease-in-out infinite;margin-bottom:28px}
+@keyframes beat{0%,100%{transform:scale(1)}20%{transform:scale(1.25)}40%{transform:scale(1.05)}}
+#msg{max-width:30em;font-family:var(--serif);font-size:clamp(1.05rem,3.8vw,1.35rem);line-height:1.9;color:var(--burg);white-space:pre-wrap;min-height:12em}
+#sign{margin-top:30px;opacity:0;transition:opacity 2s;font-size:.85rem;letter-spacing:.06em;color:var(--char)}
+#sign.show{opacity:1}
+#sign b{display:block;font:italic 500 1.1rem var(--serif);color:var(--burg);margin-bottom:6px}
+.fl{position:fixed;bottom:-30px;color:var(--rose);opacity:0;pointer-events:none;z-index:1;animation:float linear infinite}
+@keyframes float{0%{transform:translateY(0);opacity:0}15%{opacity:.5}100%{transform:translateY(-110vh) translateX(30px);opacity:0}}
+body.final .fl{display:none}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01s!important;transition-duration:.01s!important}}
+</style>
+</head>
+<body>
+
+<section id="intro" class="screen on">
+  <div class="tag">A little confession</div>
+  <h1>20 Reasons<br>Why I Love You</h1>
+  <p>“Some things are difficult to explain, but loving you has given me a thousand reasons.”</p>
+  <div><button class="btn" id="start">Discover My Reasons ♡</button></div>
+</section>
+
+<section id="main" class="screen">
+  <header class="top">
+    <h2>20 little reasons, one endless love</h2>
+    <div class="prog"><i id="bar"></i></div>
+    <div id="count">0 of 20 discovered</div>
+  </header>
+  <div id="grid"></div>
+  <div id="hint">Tap any card to discover a reason.</div>
+  <div id="last"><button class="btn" id="lastBtn">One Last Thing...</button></div>
+</section>
+
+<section id="final" class="screen">
+  <div id="fheart">♥</div>
+  <div id="msg"></div>
+  <div id="sign"><b>My loving person. My favourite feeling.</b>Forever grateful that it’s you. ❤️</div>
+</section>
+
+<div id="panel" aria-modal="true" role="dialog">
+  <div class="sheet" id="sheet">
+    <div class="heart">♡</div>
+    <div class="num" id="pn"></div>
+    <h3 id="pt"></h3>
+    <p id="pp"></p>
+    <button class="btn ghost" id="back">← Back to all reasons</button>
+  </div>
+</div>
+
+<script>
+const R=[
+["Your Smile","Your smile can make my worst days feel better. Sometimes, just imagining your smile is enough to make me happy."],
+["Your Eyes","I could get lost in your eyes without ever wanting to find my way out."],
+["Your Voice","Even an ordinary conversation feels special when it’s with you. I could listen to you talk about the smallest things all day."],
+["Your Heart","I love the beautiful heart you carry. Your kindness and the way you care mean more to me than you know."],
+["Your Laugh","Your happiness is one of my favourite sounds. I wish I could be the reason behind that beautiful laugh every day."],
+["Your Little Habits","Even your smallest habits make you special to me. Things you probably don’t even notice are things I secretly adore."],
+["Your Existence","Life feels more beautiful simply because you exist. I don’t need a special reason to be happy when I know you’re somewhere in this world."],
+["Your Anger","Even your angry moments have a special place in my heart. You’re still my favourite Angrybird."],
+["Your Innocence","There’s something precious about the way you are. I love those little moments when your innocent side comes out."],
+["Your Understanding","I love how you try to understand me. Having someone with whom I can share my thoughts makes life feel a little easier."],
+["Your Uniqueness","Nobody could ever be you. There’s something about you that I couldn’t find in anyone else."],
+["Your Presence","You make ordinary moments feel extraordinary. Sometimes, just talking to you is enough to make my entire day."],
+["Your Strength","I admire the way you handle life’s challenges. Even when things aren’t easy, there’s so much about you that makes me proud."],
+["Your Kindness","The softness in your heart makes me love you even more. I hope life always treats your beautiful heart gently."],
+["Your Imperfections","I don’t need you to be perfect to love you. I love the real you, with all your little flaws, moods, and imperfections."],
+["Our Memories","Every memory with you is something I want to keep forever. Even the simplest moments become special when they’re ours."],
+["Your Dreams","I love hearing about the future you dream of. I hope I get to stand beside you and watch those dreams become reality."],
+["Your Happiness","Seeing you happy makes my heart happy. I wish you a lifetime filled with reasons to smile."],
+["Our Future","I love the thought of building a life together. There’s something beautiful about imagining all the ordinary days, adventures, and little moments waiting for us."],
+["Simply You","After all these reasons, the truth is simple: I love you because you’re you. And if I had to choose again, I’d still choose you."]
+];
+const FINAL="After giving you 20 reasons, I realized something...\n\nI could write a thousand more, and still, I wouldn’t be able to explain everything I feel for you.\n\nI don’t love you because of a checklist of reasons.\n\nI love you because somewhere along the way, you became my favourite part of life.\n\nYou are not just 20 reasons.\n\nYou are my favourite person, my happiness, and someone I hope to keep choosing every single day.\n\nHappy Birthday, My Love. ❤️";
+const KEY="reasons20.discovered";
+const $=id=>document.getElementById(id);
+let seen=new Set();
+try{seen=new Set(JSON.parse(localStorage.getItem(KEY)||"[]"))}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify([...seen]))}catch(e){}}
+function show(id){document.querySelectorAll(".screen").forEach(s=>s.classList.remove("on"));$(id).classList.add("on");window.scrollTo(0,0)}
+function refresh(){
+  $("count").textContent=seen.size+" of 20 discovered";
+  $("bar").style.width=(seen.size/20*100)+"%";
+  $("last").classList.toggle("show",seen.size>=20);
+  $("hint").style.display=seen.size>=20?"none":"block";
+  document.querySelectorAll(".card").forEach((c,i)=>c.classList.toggle("done",seen.has(i)));
+}
+R.forEach((r,i)=>{
+  const b=document.createElement("button");
+  b.className="card";b.style.animationDelay=(i*60)+"ms";
+  b.innerHTML='<span class="n">'+String(i+1).padStart(2,"0")+'</span><span class="t">'+r[0]+'</span><span class="h">♡</span>';
+  b.onclick=()=>open(i);
+  $("grid").appendChild(b);
+});
+function open(i){
+  $("pn").textContent=String(i+1).padStart(2,"0");
+  $("pt").textContent=R[i][0];$("pp").textContent=R[i][1];
+  const s=$("sheet");s.className="sheet a"+(i%5);
+  $("panel").classList.add("on");
+  seen.add(i);save();refresh();
+}
+function close(){$("panel").classList.remove("on")}
+$("back").onclick=close;
+$("panel").onclick=e=>{if(e.target===$("panel"))close()};
+document.addEventListener("keydown",e=>{if(e.key==="Escape")close()});
+$("start").onclick=()=>{show("main");refresh()};
+$("lastBtn").onclick=()=>{
+  document.body.style.transition="opacity 1.5s";
+  document.body.style.opacity=0;
+  setTimeout(()=>{
+    document.body.classList.add("final");show("final");
+    document.body.style.opacity=1;
+    const m=$("msg");let k=0;
+    (function type(){
+      if(k<FINAL.length){m.textContent+=FINAL[k++];setTimeout(type,FINAL[k-1]==="\n"?260:48)}
+      else setTimeout(()=>$("sign").classList.add("show"),700);
+    })();
+  },1600);
+};
+for(let i=0;i<14;i++){
+  const f=document.createElement("span");f.className="fl";f.textContent="♥";
+  f.style.left=Math.random()*100+"vw";f.style.fontSize=(10+Math.random()*14)+"px";
+  f.style.animationDuration=(12+Math.random()*14)+"s";f.style.animationDelay=(-Math.random()*20)+"s";
+  document.body.appendChild(f);
+}
+refresh();
+</script>
+</body>
+</html>
